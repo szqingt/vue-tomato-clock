@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="T extends any, O extends any">
-import { TabType } from '~/components/Tabs/tabs';
-import { showNotification } from '~/utils/notification';
+import type { TabType } from '~/components/Tabs/tabs'
+import { showNotification } from '~/utils/notification'
 defineOptions({
   name: 'IndexPage',
 })
@@ -18,46 +18,45 @@ interface TypeInfo extends TabType<{
 }> {}
 
 const TYPE_INFOS: TypeInfo[] = [
-    {
-      name: 'Working',
-      value: {
-        type: ClockType.Working,
-        val: 25 * 60,
-        color: 'd44b46'
-      }
+  {
+    name: 'Working',
+    value: {
+      type: ClockType.Working,
+      val: 25 * 60,
+      color: 'd44b46',
     },
-    {
-      name: 'Short Break',
-      value: {
-        type: ClockType.ShortBreak,
-        val: 5 * 60,
-        color: '4c9195'
-      }
+  },
+  {
+    name: 'Short Break',
+    value: {
+      type: ClockType.ShortBreak,
+      val: 5 * 60,
+      color: '4c9195',
     },
-    {
-      name: 'Long Break',
-      value: {
-        type: ClockType.LongBreak,
-        val: 15 * 60,
-        color: '457ca3'
-      }
+  },
+  {
+    name: 'Long Break',
+    value: {
+      type: ClockType.LongBreak,
+      val: 15 * 60,
+      color: '457ca3',
     },
+  },
 
-  ]
+]
 
-let curTypeInfo = $ref(TYPE_INFOS[0]);
-const { countTxt, isActive, rest, pause, resume } = useCountdownTime(curTypeInfo.value.val, onDone);
+let curTypeInfo = $ref(TYPE_INFOS[0])
+const { countTxt, isActive, rest, pause, resume } = useCountdownTime(curTypeInfo.value.val, onDone)
 
 function onDone() {
-  showNotification('时间到了！');
+  showNotification('时间到了！')
 }
 
 function toggle() {
-  if (isActive.value) {
+  if (isActive.value)
     pause()
-  } else {
+  else
     resume()
-  }
 }
 
 function onTypeChange(typeInfo: TypeInfo) {
@@ -66,9 +65,8 @@ function onTypeChange(typeInfo: TypeInfo) {
 }
 
 const style = computed(() => ({
-  'background-color': `#${curTypeInfo.value.color}`
+  'background-color': `#${curTypeInfo.value.color}`,
 }))
-
 </script>
 
 <template>
@@ -83,9 +81,11 @@ const style = computed(() => ({
           {{ countTxt }}
         </div>
         <div mt-40px flex justify-center>
-          <button class="w-[55%]" :class="{ isEnd: !isActive }" uppercase text-22px h-50px rounded-md flex
-            justify-center items-center bg-white font-bold text-hex-d44b46 @click="toggle">
-            {{ isActive? 'END': 'START' }}
+          <button
+            class="w-[55%]" :class="{ isEnd: !isActive }" uppercase text-22px h-50px rounded-md flex
+            justify-center items-center bg-white font-bold text-hex-d44b46 @click="toggle"
+          >
+            {{ isActive ? 'END' : 'START' }}
           </button>
         </div>
       </main>

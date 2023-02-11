@@ -6,14 +6,14 @@ function formatData(seconds: number) {
   return `${padZero(cM)}:${padZero(cS)}`
 }
 
-export function useCountdownTime(seconds: number, onDone?: Function)  {
-  let countTxt = ref(formatData(seconds))
-  let countNumber = ref(seconds)
+export function useCountdownTime(seconds: number, onDone?: Function) {
+  const countTxt = ref(formatData(seconds))
+  const countNumber = ref(seconds)
   const { pause, resume, isActive } = useIntervalFn(() => {
     if (countNumber.value === 0) {
       pause()
       onDone && onDone()
-      return;
+      return
     }
 
     countNumber.value--
@@ -30,6 +30,6 @@ export function useCountdownTime(seconds: number, onDone?: Function)  {
     pause,
     resume,
     rest,
-    isActive
+    isActive,
   }
 }
