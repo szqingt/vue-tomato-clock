@@ -14,5 +14,6 @@ declare module '@vue/runtime-core' {
     TheCounter: typeof import('./src/components/TheCounter.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     TheInput: typeof import('./src/components/TheInput.vue')['default']
+    TheToolBar: typeof import('./src/components/TheToolBar.vue')['default']
   }
 }
