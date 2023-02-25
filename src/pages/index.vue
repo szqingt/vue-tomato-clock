@@ -33,7 +33,7 @@ function onTypeChange(tomato: TabType<number>) {
 </script>
 
 <template>
-  <div w-full :class="[curTypeInfo.class]" h-full relative transition-colors p-5 flex items-start justify-center flex-wrap>
+  <div w-full bg-hex-d44b46 dark:bg-inherit h-full relative transition-colors p-5 flex items-start justify-center flex-wrap>
     <TheToolBar absolute right-5 />
     <div w-40rem flex justify-center flex-wrap>
       <p text-white text-2rem fw-800 pb-4 mb-4 box-border border-b-4 w-full text-center>
