@@ -1,5 +1,5 @@
-export interface TabType<T> {
+export interface TabType {
   name: string
-  value: T
+  value: unknown
   [key in string]: any
 }

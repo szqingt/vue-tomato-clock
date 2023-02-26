@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { TabType } from '~/components/Tabs/tabs'
 import type { TomatoInfo } from '~/composables/tomato'
 import { useTomato } from '~/composables/tomato'
 import { showNotification } from '~/utils/notification'
@@ -26,8 +25,8 @@ watch(tomatoInfos, () => {
   rest(curTypeInfo.value)
 })
 
-function onTypeChange(tomato: TabType<number>) {
-  curTypeInfo = tomato as TomatoInfo
+function onTypeChange(tomato: TomatoInfo) {
+  curTypeInfo = tomato
   rest(tomato.value)
 }
 </script>
