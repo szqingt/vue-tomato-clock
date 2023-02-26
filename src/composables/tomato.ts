@@ -1,13 +1,13 @@
+import type { TabType } from '~/components/Tabs/tabs'
+
 enum ClockType {
   Working,
   ShortBreak,
   LongBreak,
 }
 
-export interface TomatoInfo {
+export interface TomatoInfo extends TabType<number> {
   type: ClockType
-  value: number
-  name: string
 }
 
 export function useTomato() {

@@ -27,7 +27,8 @@
     "plugins": [
       "@vue-macros/volar/define-model",
       "@vue-macros/volar/define-slots"
-    ]
+    ],
+    "experimentalRfc436": true
   },
   "exclude": ["dist", "node_modules"]
 }

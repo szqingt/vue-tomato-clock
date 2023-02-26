@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T extends any, O extends any">
+<script setup lang="ts">
 import type { TabType } from '~/components/Tabs/tabs'
 import type { TomatoInfo } from '~/composables/tomato'
 import { useTomato } from '~/composables/tomato'
